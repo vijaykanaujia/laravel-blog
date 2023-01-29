@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
             $table->string('title', 80)->nullable(false);
-            $table->string('slug')->nullable();
+            $table->string('slug')->nullable()->unique();
             $table->tinyText('description')->nullable();
             $table->enum('status', ['pending','published', 'draft', 'private'])->default('pending');
             $table->longText('content')->nullable();
