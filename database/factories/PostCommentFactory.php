@@ -17,7 +17,7 @@ class PostCommentFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => fake()->randomNumber(1, 10),
+            'post_id' => mt_rand(1, 10),
             'status' => fake()->randomElement(['visible', 'hide']),
             'content' => fake()->text(200),
         ];

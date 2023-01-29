@@ -16,4 +16,12 @@ class Post extends Model
     public function postMetas(){
         return $this->hasMany(PostMeta::class);
     }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
 }

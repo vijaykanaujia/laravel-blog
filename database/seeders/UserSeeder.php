@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory(10)->create()->each(function($user){
-            $user->posts()->saveMany(Post::factory(mt_rand(2,3))->make());
+            $user->posts()->saveMany(Post::factory(mt_rand(1,3))->make());
         });
     }
 }
