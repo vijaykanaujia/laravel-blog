@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class CategoryPostFactory extends Factory
     {
         return [
             'category_id' => mt_rand(1, 5),
-            'post_id' => mt_rand(1, 3),
+            'post_id' => mt_rand(1, Post::all()->count()),
         ];
     }
 }

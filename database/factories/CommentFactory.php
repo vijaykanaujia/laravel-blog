@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PostComment>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
  */
-class PostCommentFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +18,7 @@ class PostCommentFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => mt_rand(1, 10),
+            'post_id' => mt_rand(1, Post::all()->count()),
             'status' => fake()->randomElement(['visible', 'hide']),
             'content' => fake()->text(200),
         ];

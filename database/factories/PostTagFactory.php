@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class PostTagFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => mt_rand(1, 3),
+            'post_id' => mt_rand(1, Post::all()->count()),
             'tag_id' => mt_rand(1, 5),
         ];
     }
