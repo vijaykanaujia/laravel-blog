@@ -10,4 +10,6 @@ class CategoryPost extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $table = 'category_post';
 }

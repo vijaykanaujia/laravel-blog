@@ -19,12 +19,13 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('title', 80)->nullable(false);
+            $table->tinyText('title')->nullable(false);
             $table->string('slug')->nullable()->unique();
             $table->tinyText('description')->nullable();
             $table->enum('status', ['pending','published', 'draft', 'private'])->default('pending');
             $table->longText('content')->nullable();
             $table->dateTime('published_at')->nullable();
+            $table->fullText(['title', 'content']);
             $table->timestamps();
         });
     }

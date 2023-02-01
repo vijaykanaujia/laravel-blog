@@ -34,3 +34,5 @@ Route::get('/', function () {
 
 Route::get('tags', [QueryController::class, 'tags']);
 Route::get('posts', [QueryController::class, 'posts']);
+Route::get('category', [QueryController::class, 'category']);
+Route::get('fulltextSearch', [QueryController::class, 'fulltextSearch']);
